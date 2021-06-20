@@ -7,83 +7,49 @@ for (i = 0; i < data.length; i++)
 {
     if(data[i]['status'] == "BEFORE")
     {
-      if( i == data.length - 1)
+      alldetails += "Name: " + data[i]['name'] + "<br>";
+
+      var dateTime = data[i]['start_time'];
+      var date = "", time = "", check = false;
+      for(var j=0; j<dateTime.length; j++)
       {
-        alldetails += "Name: " + data[i]['name'] + "<br>";
-
-        var dateTime = data[i]['start_time'];
-        var date = "", time = "", check = false;
-        for(var j=0; j<dateTime.length; j++)
+        if(dateTime[j] == 'T')
         {
-          if(dateTime[j] == 'T')
-          {
-            check = true;
-            continue;
-          }
-          if(check) time += dateTime[j];
-          else date += dateTime[j];
+          check = true;
+          continue;
         }
-        intTime = parseInt(time);
-        if(intTime <= 18) intTime += 6;
-        else intTime = (intTime+6)%24;
-        strTime = intTime.toString();
-
-        var arr = time.split("");
-        arr.splice(0, 1, strTime[0]);
-        time = arr.join("");
-
-        var brr = time.split("");
-        brr.splice(1, 1, strTime[1]);
-        time = brr.join("");
-
-        alldetails += "Contest Date: " + date + "<br>";
-        alldetails += "Contest Time: " + time + "<br>";
-
-        var limit = parseInt(data[i]['duration']);
-        var hour = parseInt(limit / 3600);
-        var minute = (limit%3600)/60;
-
-        alldetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-        alldetails += "Link: " + data[i]['url'] + "<br><br>";
+        if(check) time += dateTime[j];
+        else date += dateTime[j];
       }
-      else
+      intTime = parseInt(time);
+      if(intTime <= 18) intTime += 6;
+      else intTime = (intTime+6)%24;
+      strTime = intTime.toString();
+
+      var arr = time.split("");
+      arr.splice(0, 1, strTime[0]);
+      time = arr.join("");
+
+      var brr = time.split("");
+      brr.splice(1, 1, strTime[1]);
+      time = brr.join("");
+
+      // slicing time
+      var timeLimit = time.length - 5
+      time = time.substr(0,timeLimit);
+
+      alldetails += "Contest Date: " + date + "<br>";
+      alldetails += "Contest Time: " + time + "<br>";
+
+      var limit = parseInt(data[i]['duration']);
+      var hour = parseInt(limit / 3600);
+      var minute = (limit%3600)/60;
+
+      alldetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+      alldetails += "Link: " + data[i]['url'] + "<br><br>";
+      if( i != data.length - 1)
       {
-        alldetails += "Name: " + data[i]['name'] + "<br>";
-
-        var dateTime = data[i]['start_time'];
-        var date = "", time = "", check = false;
-        for(var j=0; j<dateTime.length; j++)
-        {
-          if(dateTime[j] == 'T')
-          {
-            check = true;
-            continue;
-          }
-          if(check) time += dateTime[j];
-          else date += dateTime[j];
-        }
-        intTime = parseInt(time);
-        if(intTime <= 18) intTime += 6;
-        else intTime = (intTime+6)%24;
-        strTime = intTime.toString();
-
-        var arr = time.split("");
-        arr.splice(0, 1, strTime[0]);
-        time = arr.join("");
-
-        var brr = time.split("");
-        brr.splice(1, 1, strTime[1]);
-        time = brr.join("");
-
-        alldetails += "Contest Date: " + date + "<br>";
-        alldetails += "Contest Time: " + time + "<br>";
-
-        var limit = parseInt(data[i]['duration']);
-        var hour = parseInt(limit / 3600);
-        var minute = (limit%3600)/60;
-
-        alldetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-        alldetails += "Link: " + data[i]['url'] + "<br><br><hr>";
+        alldetails += "<hr>";
       }
     }
   }
@@ -100,83 +66,49 @@ for (i = 0; i < data.length; i++)
 {
     if(data[i]['status'] == "BEFORE")
     {
-      if( i == data.length - 1)
+      atcoderContestDetails += "Name: " + data[i]['name'] + "<br>";
+
+      var dateTime = data[i]['start_time'];
+      var date = "", time = "", check = false;
+      for(var j=0; j<dateTime.length; j++)
       {
-        atcoderContestDetails += "Name: " + data[i]['name'] + "<br>";
-
-        var dateTime = data[i]['start_time'];
-        var date = "", time = "", check = false;
-        for(var j=0; j<dateTime.length; j++)
+        if(dateTime[j] == 'T')
         {
-          if(dateTime[j] == 'T')
-          {
-            check = true;
-            continue;
-          }
-          if(check) time += dateTime[j];
-          else date += dateTime[j];
+          check = true;
+          continue;
         }
-        intTime = parseInt(time);
-        if(intTime <= 18) intTime += 6;
-        else intTime = (intTime+6)%24;
-        strTime = intTime.toString();
-
-        var arr = time.split("");
-        arr.splice(0, 1, strTime[0]);
-        time = arr.join("");
-
-        var brr = time.split("");
-        brr.splice(1, 1, strTime[1]);
-        time = brr.join("");
-
-        atcoderContestDetails += "Contest Date: " + date + "<br>";
-        atcoderContestDetails += "Contest Time: " + time + "<br>";
-
-        var limit = parseInt(data[i]['duration']);
-        var hour = parseInt(limit / 3600);
-        var minute = (limit%3600)/60;
-
-        atcoderContestDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-        atcoderContestDetails += "Link: " + data[i]['url'] + "<br><br>";
+        if(check) time += dateTime[j];
+        else date += dateTime[j];
       }
-      else
+      intTime = parseInt(time);
+      if(intTime <= 18) intTime += 6;
+      else intTime = (intTime+6)%24;
+      strTime = intTime.toString();
+
+      var arr = time.split("");
+      arr.splice(0, 1, strTime[0]);
+      time = arr.join("");
+
+      var brr = time.split("");
+      brr.splice(1, 1, strTime[1]);
+      time = brr.join("");
+
+      // slicing time
+      var timeLimit = time.length - 5
+      time = time.substr(0,timeLimit);
+
+      atcoderContestDetails += "Contest Date: " + date + "<br>";
+      atcoderContestDetails += "Contest Time: " + time + "<br>";
+
+      var limit = parseInt(data[i]['duration']);
+      var hour = parseInt(limit / 3600);
+      var minute = (limit%3600)/60;
+
+      atcoderContestDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+      atcoderContestDetails += "Link: " + data[i]['url'] + "<br><br>";
+      if(i != data.length -1 )
       {
-        atcoderContestDetails += "Name: " + data[i]['name'] + "<br>";
-
-        var dateTime = data[i]['start_time'];
-        var date = "", time = "", check = false;
-        for(var j=0; j<dateTime.length; j++)
-        {
-          if(dateTime[j] == 'T')
-          {
-            check = true;
-            continue;
-          }
-          if(check) time += dateTime[j];
-          else date += dateTime[j];
-        }
-        intTime = parseInt(time);
-        if(intTime <= 18) intTime += 6;
-        else intTime = (intTime+6)%24;
-        strTime = intTime.toString();
-
-        var arr = time.split("");
-        arr.splice(0, 1, strTime[0]);
-        time = arr.join("");
-
-        var brr = time.split("");
-        brr.splice(1, 1, strTime[1]);
-        time = brr.join("");
-
-        atcoderContestDetails += "Contest Date: " + date + "<br>";
-        atcoderContestDetails += "Contest Time: " + time + "<br>";
-
-        var limit = parseInt(data[i]['duration']);
-        var hour = parseInt(limit / 3600);
-        var minute = (limit%3600)/60;
-
-        atcoderContestDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-        atcoderContestDetails += "Link: " + data[i]['url'] + "<br><br><hr>";
+        atcoderContestDetails += "<hr>";
       }
     }
   }
@@ -194,83 +126,49 @@ for (i = 0; i < data.length; i++)
 {
     if(data[i]['status'] == "BEFORE")
     {
-      if( i == data.length - 1)
+      codechefDetails += "Name: " + data[i]['name'] + "<br>";
+
+      var dateTime = data[i]['start_time'];
+      var date = "", time = "", check = false;
+      for(var j=0; j<dateTime.length; j++)
       {
-        codechefDetails += "Name: " + data[i]['name'] + "<br>";
-
-        var dateTime = data[i]['start_time'];
-        var date = "", time = "", check = false;
-        for(var j=0; j<dateTime.length; j++)
+        if(dateTime[j] == 'T')
         {
-          if(dateTime[j] == 'T')
-          {
-            check = true;
-            continue;
-          }
-          if(check) time += dateTime[j];
-          else date += dateTime[j];
+          check = true;
+          continue;
         }
-        intTime = parseInt(time);
-        if(intTime <= 18) intTime += 6;
-        else intTime = (intTime+6)%24;
-        strTime = intTime.toString();
-
-        var arr = time.split("");
-        arr.splice(0, 1, strTime[0]);
-        time = arr.join("");
-
-        var brr = time.split("");
-        brr.splice(1, 1, strTime[1]);
-        time = brr.join("");
-
-        codechefDetails += "Contest Date: " + date + "<br>";
-        codechefDetails += "Contest Time: " + time + "<br>";
-
-        var limit = parseInt(data[i]['duration']);
-        var hour = parseInt(limit / 3600);
-        var minute = (limit%3600)/60;
-
-        codechefDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-        codechefDetails += "Link: " + data[i]['url'] + "<br><br>";
+        if(check) time += dateTime[j];
+        else date += dateTime[j];
       }
-      else
+      intTime = parseInt(time);
+      if(intTime <= 18) intTime += 6;
+      else intTime = (intTime+6)%24;
+      strTime = intTime.toString();
+
+      var arr = time.split("");
+      arr.splice(0, 1, strTime[0]);
+      time = arr.join("");
+
+      var brr = time.split("");
+      brr.splice(1, 1, strTime[1]);
+      time = brr.join("");
+
+      // slicing time
+      var timeLimit = time.length - 5
+      time = time.substr(0,timeLimit);
+
+      codechefDetails += "Contest Date: " + date + "<br>";
+      codechefDetails += "Contest Time: " + time + "<br>";
+
+      var limit = parseInt(data[i]['duration']);
+      var hour = parseInt(limit / 3600);
+      var minute = (limit%3600)/60;
+
+      codechefDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+      codechefDetails += "Link: " + data[i]['url'] + "<br><br>";
+      if(i != data.length - 1)
       {
-        codechefDetails += "Name: " + data[i]['name'] + "<br>";
-
-        var dateTime = data[i]['start_time'];
-        var date = "", time = "", check = false;
-        for(var j=0; j<dateTime.length; j++)
-        {
-          if(dateTime[j] == 'T')
-          {
-            check = true;
-            continue;
-          }
-          if(check) time += dateTime[j];
-          else date += dateTime[j];
-        }
-        intTime = parseInt(time);
-        if(intTime <= 18) intTime += 6;
-        else intTime = (intTime+6)%24;
-        strTime = intTime.toString();
-
-        var arr = time.split("");
-        arr.splice(0, 1, strTime[0]);
-        time = arr.join("");
-
-        var brr = time.split("");
-        brr.splice(1, 1, strTime[1]);
-        time = brr.join("");
-
-        codechefDetails += "Contest Date: " + date + "<br>";
-        codechefDetails += "Contest Time: " + time + "<br>";
-
-        var limit = parseInt(data[i]['duration']);
-        var hour = parseInt(limit / 3600);
-        var minute = (limit%3600)/60;
-
-        codechefDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-        codechefDetails += "Link: " + data[i]['url'] + "<br><br><hr>";
+        codechefDetails += "<hr>";
       }
     }
   }
@@ -285,83 +183,49 @@ var i;
 var leetCodeDetails = "";
 for (i = 0; i < data.length; i++) 
 {
-    if( i == data.length - 1)
+    leetCodeDetails += "Name: " + data[i]['name'] + "<br>";
+
+    var dateTime = data[i]['start_time'];
+    var date = "", time = "", check = false;
+    for(var j=0; j<dateTime.length; j++)
     {
-      leetCodeDetails += "Name: " + data[i]['name'] + "<br>";
-
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
+      if(dateTime[j] == 'T')
       {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
+        check = true;
+        continue;
       }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
-
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
-
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
-
-      leetCodeDetails += "Contest Date: " + date + "<br>";
-      leetCodeDetails += "Contest Time: " + time + "<br>";
-
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
-
-      leetCodeDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      leetCodeDetails += "Link: " + data[i]['url'] + "<br><br>";
+      if(check) time += dateTime[j];
+      else date += dateTime[j];
     }
-    else
+    intTime = parseInt(time);
+    if(intTime <= 18) intTime += 6;
+    else intTime = (intTime+6)%24;
+    strTime = intTime.toString();
+
+    var arr = time.split("");
+    arr.splice(0, 1, strTime[0]);
+    time = arr.join("");
+
+    var brr = time.split("");
+    brr.splice(1, 1, strTime[1]);
+    time = brr.join("");
+
+    // slicing time
+    var timeLimit = time.length - 5
+    time = time.substr(0,timeLimit);
+
+    leetCodeDetails += "Contest Date: " + date + "<br>";
+    leetCodeDetails += "Contest Time: " + time + "<br>";
+
+    var limit = parseInt(data[i]['duration']);
+    var hour = parseInt(limit / 3600);
+    var minute = (limit%3600)/60;
+
+    leetCodeDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+    leetCodeDetails += "Link: " + data[i]['url'] + "<br><br>";
+    if(i != data.length - 1)
     {
-      leetCodeDetails += "Name: " + data[i]['name'] + "<br>";
-
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
-      {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
-      }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
-
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
-
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
-
-      leetCodeDetails += "Contest Date: " + date + "<br>";
-      leetCodeDetails += "Contest Time: " + time + "<br>";
-
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
-
-      leetCodeDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      leetCodeDetails += "Link: " + data[i]['url'] + "<br><br><hr>";
+      leetCodeDetails += "<hr>";
     }
   }
   $(".leetCodeContestDetails").append(leetCodeDetails);
@@ -375,85 +239,53 @@ var i;
 var hackerRankDetails = "";
 for (i = 0; i < data.length; i++) 
 {
-    if( i == data.length - 1)
+    hackerRankDetails += "Name: " + data[i]['name'] + "<br>";
+
+    var dateTime = data[i]['start_time'];
+    var date = "", time = "", check = false;
+    for(var j=0; j<dateTime.length; j++)
     {
-      hackerRankDetails += "Name: " + data[i]['name'] + "<br>";
-
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
+      if(dateTime[j] == 'T')
       {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
+        check = true;
+        continue;
       }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
-
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
-
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
-
-      hackerRankDetails += "Contest Date: " + date + "<br>";
-      hackerRankDetails += "Contest Time: " + time + "<br>";
-
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
-
-      hackerRankDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      hackerRankDetails += "Link: " + data[i]['url'] + "<br><br>";
+      if(check) time += dateTime[j];
+      else date += dateTime[j];
     }
-    else
+    intTime = parseInt(time);
+    if(intTime <= 18) intTime += 6;
+    else intTime = (intTime+6)%24;
+    strTime = intTime.toString();
+
+    var arr = time.split("");
+    arr.splice(0, 1, strTime[0]);
+    time = arr.join("");
+
+    var brr = time.split("");
+    brr.splice(1, 1, strTime[1]);
+    time = brr.join("");
+
+    // slicing time
+    var timeLimit = time.length - 5
+    time = time.substr(0,timeLimit);
+
+    hackerRankDetails += "Contest Date: " + date + "<br>";
+    hackerRankDetails += "Contest Time: " + time + "<br>";
+
+    var limit = parseInt(data[i]['duration']);
+    var hour = parseInt(limit / 3600);
+    var minute = (limit%3600)/60;
+
+    hackerRankDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+    hackerRankDetails += "Link: " + data[i]['url'] + "<br><br>";
+
+    if(i != data.length - 1) 
     {
-      hackerRankDetails += "Name: " + data[i]['name'] + "<br>";
-
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
-      {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
-      }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
-
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
-
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
-
-      hackerRankDetails += "Contest Date: " + date + "<br>";
-      hackerRankDetails += "Contest Time: " + time + "<br>";
-
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
-
-      hackerRankDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      hackerRankDetails += "Link: " + data[i]['url'] + "<br><br>";
+      hackerRankDetails += "<hr>";
     }
-  }
+}
+
   $(".hackerRankContestDetails").append(hackerRankDetails);
 });
 
@@ -465,84 +297,50 @@ var i;
 var hackerEarthDetails = "";
 for (i = 0; i < data.length; i++) 
 {
-    if( i == data.length - 1)
+  hackerEarthDetails += "Name: " + data[i]['name'] + "<br>";
+
+  var dateTime = data[i]['start_time'];
+  var date = "", time = "", check = false;
+  for(var j=0; j<dateTime.length; j++)
+  {
+    if(dateTime[j] == 'T')
     {
-      hackerEarthDetails += "Name: " + data[i]['name'] + "<br>";
-
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
-      {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
-      }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
-
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
-
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
-
-      hackerEarthDetails += "Contest Date: " + date + "<br>";
-      hackerEarthDetails += "Contest Time: " + time + "<br>";
-
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
-
-      hackerEarthDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      hackerEarthDetails += "Link: " + data[i]['url'] + "<br><br>";
+      check = true;
+      continue;
     }
-    else
-    {
-      hackerEarthDetails += "Name: " + data[i]['name'] + "<br>";
+    if(check) time += dateTime[j];
+    else date += dateTime[j];
+  }
+  intTime = parseInt(time);
+  if(intTime <= 18) intTime += 6;
+  else intTime = (intTime+6)%24;
+  strTime = intTime.toString();
 
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
-      {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
-      }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
+  var arr = time.split("");
+  arr.splice(0, 1, strTime[0]);
+  time = arr.join("");
 
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
+  var brr = time.split("");
+  brr.splice(1, 1, strTime[1]);
+  time = brr.join("");
 
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
+  // slicing time
+  var timeLimit = time.length - 5
+  time = time.substr(0,timeLimit);
 
-      hackerEarthDetails += "Contest Date: " + date + "<br>";
-      hackerEarthDetails += "Contest Time: " + time + "<br>";
+  hackerEarthDetails += "Contest Date: " + date + "<br>";
+  hackerEarthDetails += "Contest Time: " + time + "<br>";
 
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
+  var limit = parseInt(data[i]['duration']);
+  var hour = parseInt(limit / 3600);
+  var minute = (limit%3600)/60;
 
-      hackerEarthDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      hackerEarthDetails += "Link: " + data[i]['url'] + "<br><br><hr>";
-    }
+  hackerEarthDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+  hackerEarthDetails += "Link: " + data[i]['url'] + "<br><br>";
+  }
+  if(i != data.length - 1)
+  {
+    hackerEarthDetails += "<hr>";
   }
   $(".hackerEarthContestDetails").append(hackerEarthDetails);
 });
@@ -555,84 +353,50 @@ var i;
 var kickStartDetails = "";
 for (i = 0; i < data.length; i++) 
 {
-    if( i == data.length - 1)
+  kickStartDetails += "Name: " + data[i]['name'] + "<br>";
+
+  var dateTime = data[i]['start_time'];
+  var date = "", time = "", check = false;
+  for(var j=0; j<dateTime.length; j++)
+  {
+    if(dateTime[j] == 'T')
     {
-      kickStartDetails += "Name: " + data[i]['name'] + "<br>";
-
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
-      {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
-      }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
-
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
-
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
-
-      kickStartDetails += "Contest Date: " + date + "<br>";
-      kickStartDetails += "Contest Time: " + time + "<br>";
-
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
-
-      kickStartDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      kickStartDetails += "Link: " + data[i]['url'] + "<br><br>";
+      check = true;
+      continue;
     }
-    else
-    {
-      kickStartDetails += "Name: " + data[i]['name'] + "<br>";
-
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
-      {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
-      }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
-
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
-
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
-
-      kickStartDetails += "Contest Date: " + date + "<br>";
-      kickStartDetails += "Contest Time: " + time + "<br>";
-
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
-
-      kickStartDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      kickStartDetails += "Link: " + data[i]['url'] + "<br><br><hr>";
-    }
+    if(check) time += dateTime[j];
+    else date += dateTime[j];
   }
+  intTime = parseInt(time);
+  if(intTime <= 18) intTime += 6;
+  else intTime = (intTime+6)%24;
+  strTime = intTime.toString();
+
+  var arr = time.split("");
+  arr.splice(0, 1, strTime[0]);
+  time = arr.join("");
+
+  var brr = time.split("");
+  brr.splice(1, 1, strTime[1]);
+  time = brr.join("");
+
+  // slicing time
+  var timeLimit = time.length - 5
+  time = time.substr(0,timeLimit);
+
+  kickStartDetails += "Contest Date: " + date + "<br>";
+  kickStartDetails += "Contest Time: " + time + "<br>";
+
+  var limit = parseInt(data[i]['duration']);
+  var hour = parseInt(limit / 3600);
+  var minute = (limit%3600)/60;
+
+  kickStartDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+  kickStartDetails += "Link: " + data[i]['url'] + "<br><br>";
+  if( i != data.length - 1) 
+  {
+    kickStartDetails += "<hr>";
+  }
+}
   $(".kickStartContestDetails").append(kickStartDetails);
 });
