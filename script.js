@@ -2,12 +2,12 @@
 $.getJSON("https://kontests.net/api/v1/codeforces", function(data){
 console.log(data);
 var i;
-var alldetails = "";
+var alldetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
     if(data[i]['status'] == "BEFORE")
     {
-      alldetails += "Name: " + data[i]['name'] + "<br>";
+      alldetails += "<b> Name: </b>" + data[i]['name'] + "<br>";
 
       var dateTime = data[i]['start_time'];
       var date = "", time = "", check = false;
@@ -38,21 +38,22 @@ for (i = 0; i < data.length; i++)
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
 
-      alldetails += "Contest Date: " + date + "<br>";
-      alldetails += "Contest Time: " + time + "<br>";
+      alldetails += " <b> Contest Date: </b>" + date + "<br>";
+      alldetails += "<b> Contest Time: </b>" + time + "<br>";
 
       var limit = parseInt(data[i]['duration']);
       var hour = parseInt(limit / 3600);
       var minute = (limit%3600)/60;
 
-      alldetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      alldetails += "Link: " + data[i]['url'] + "<br><br>";
+      alldetails += "<b> Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+      alldetails += "<a href='"+data[i]['url']+"'>Contest Link</a><br><br>";
       if( i != data.length - 1)
       {
         alldetails += "<hr>";
       }
     }
   }
+  alldetails += "</center>";
   $(".cfContestDetails").append(alldetails);
 });
 
@@ -61,12 +62,12 @@ for (i = 0; i < data.length; i++)
 $.getJSON("https://kontests.net/api/v1/at_coder", function(data){
 //console.log(data);
 var i;
-var atcoderContestDetails = "";
+var atcoderContestDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
     if(data[i]['status'] == "BEFORE")
     {
-      atcoderContestDetails += "Name: " + data[i]['name'] + "<br>";
+      atcoderContestDetails += "<b> Name: </b>" + data[i]['name'] + "<br>";
 
       var dateTime = data[i]['start_time'];
       var date = "", time = "", check = false;
@@ -97,21 +98,22 @@ for (i = 0; i < data.length; i++)
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
 
-      atcoderContestDetails += "Contest Date: " + date + "<br>";
-      atcoderContestDetails += "Contest Time: " + time + "<br>";
+      atcoderContestDetails += "<b> Contest Date: </b>" + date + "<br>";
+      atcoderContestDetails += "<b> Contest Time: </b>" + time + "<br>";
 
       var limit = parseInt(data[i]['duration']);
       var hour = parseInt(limit / 3600);
       var minute = (limit%3600)/60;
 
-      atcoderContestDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      atcoderContestDetails += "Link: " + data[i]['url'] + "<br><br>";
+      atcoderContestDetails += " <b> Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+      atcoderContestDetails += "<a href='"+data[i]['url']+"'>Contest Link</a><br><br>";
       if(i != data.length -1 )
       {
         atcoderContestDetails += "<hr>";
       }
     }
   }
+  atcoderContestDetails += "</center>";
   $(".atcoderContestDetails").append(atcoderContestDetails);
 });
 
@@ -121,12 +123,12 @@ for (i = 0; i < data.length; i++)
 $.getJSON("https://kontests.net/api/v1/code_chef", function(data){
 //console.log(data);
 var i;
-var codechefDetails = "";
+var codechefDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
     if(data[i]['status'] == "BEFORE")
     {
-      codechefDetails += "Name: " + data[i]['name'] + "<br>";
+      codechefDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
 
       var dateTime = data[i]['start_time'];
       var date = "", time = "", check = false;
@@ -157,21 +159,22 @@ for (i = 0; i < data.length; i++)
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
 
-      codechefDetails += "Contest Date: " + date + "<br>";
-      codechefDetails += "Contest Time: " + time + "<br>";
+      codechefDetails += "<b>Contest Date: </b>" + date + "<br>";
+      codechefDetails += "<b>Contest Time: </b>" + time + "<br>";
 
       var limit = parseInt(data[i]['duration']);
       var hour = parseInt(limit / 3600);
       var minute = (limit%3600)/60;
 
-      codechefDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-      codechefDetails += "Link: " + data[i]['url'] + "<br><br>";
+      codechefDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+      codechefDetails += "<a href='"+data[i]['url']+"'>Contest Link</a><br><br>";
       if(i != data.length - 1)
       {
         codechefDetails += "<hr>";
       }
     }
   }
+  codechefDetails += "</center>";
   $(".codechefContestDetails").append(codechefDetails);
 });
 
@@ -180,10 +183,10 @@ for (i = 0; i < data.length; i++)
 $.getJSON("https://kontests.net/api/v1/leet_code", function(data){
 //console.log(data);
 var i;
-var leetCodeDetails = "";
+var leetCodeDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-    leetCodeDetails += "Name: " + data[i]['name'] + "<br>";
+    leetCodeDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
 
     var dateTime = data[i]['start_time'];
     var date = "", time = "", check = false;
@@ -214,20 +217,21 @@ for (i = 0; i < data.length; i++)
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
 
-    leetCodeDetails += "Contest Date: " + date + "<br>";
-    leetCodeDetails += "Contest Time: " + time + "<br>";
+    leetCodeDetails += "<b>Contest Date: </b>" + date + "<br>";
+    leetCodeDetails += "<b>Contest Time: </b>" + time + "<br>";
 
     var limit = parseInt(data[i]['duration']);
     var hour = parseInt(limit / 3600);
     var minute = (limit%3600)/60;
 
-    leetCodeDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-    leetCodeDetails += "Link: " + data[i]['url'] + "<br><br>";
+    leetCodeDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+    leetCodeDetails += "<a href='"+data[i]['url']+"'>Contest Link</a><br><br>";
     if(i != data.length - 1)
     {
       leetCodeDetails += "<hr>";
     }
   }
+  leetCodeDetails += "</center>";
   $(".leetCodeContestDetails").append(leetCodeDetails);
 });
 
@@ -236,10 +240,10 @@ for (i = 0; i < data.length; i++)
 $.getJSON("https://kontests.net/api/v1/hacker_rank", function(data){
 //console.log(data);
 var i;
-var hackerRankDetails = "";
+var hackerRankDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-    hackerRankDetails += "Name: " + data[i]['name'] + "<br>";
+    hackerRankDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
 
     var dateTime = data[i]['start_time'];
     var date = "", time = "", check = false;
@@ -270,79 +274,81 @@ for (i = 0; i < data.length; i++)
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
 
-    hackerRankDetails += "Contest Date: " + date + "<br>";
-    hackerRankDetails += "Contest Time: " + time + "<br>";
+    hackerRankDetails += "<b>Contest Date: </b>" + date + "<br>";
+    hackerRankDetails += "<b>Contest Time: </b>" + time + "<br>";
 
     var limit = parseInt(data[i]['duration']);
     var hour = parseInt(limit / 3600);
     var minute = (limit%3600)/60;
 
-    hackerRankDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-    hackerRankDetails += "Link: " + data[i]['url'] + "<br><br>";
+    hackerRankDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+    hackerRankDetails += "<a href='"+data[i]['url']+"'>Contest Link</a><br><br>";
 
     if(i != data.length - 1) 
     {
       hackerRankDetails += "<hr>";
     }
 }
-
+hackerRankDetails += "</center>";
   $(".hackerRankContestDetails").append(hackerRankDetails);
 });
 
 
 //HackerEarth
 $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
-//console.log(data);
-var i;
-var hackerEarthDetails = "";
-for (i = 0; i < data.length; i++) 
-{
-  hackerEarthDetails += "Name: " + data[i]['name'] + "<br>";
-
-  var dateTime = data[i]['start_time'];
-  var date = "", time = "", check = false;
-  for(var j=0; j<dateTime.length; j++)
+  //console.log(data);
+  var i;
+  var hackerEarthDetails = "<center>";
+  for (i = 0; i < data.length; i++) 
   {
-    if(dateTime[j] == 'T')
+    hackerEarthDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
+
+    var dateTime = data[i]['start_time'];
+    var date = "", time = "", check = false;
+    for(var j=0; j<dateTime.length; j++)
     {
-      check = true;
-      continue;
+      if(dateTime[j] == 'T')
+      {
+        check = true;
+        continue;
+      }
+      if(check) time += dateTime[j];
+      else date += dateTime[j];
     }
-    if(check) time += dateTime[j];
-    else date += dateTime[j];
+    intTime = parseInt(time);
+    if(intTime <= 18) intTime += 6;
+    else intTime = (intTime+6)%24;
+    strTime = intTime.toString();
+
+    var arr = time.split("");
+    arr.splice(0, 1, strTime[0]);
+    time = arr.join("");
+
+    var brr = time.split("");
+    brr.splice(1, 1, strTime[1]);
+    time = brr.join("");
+
+    // slicing time
+    var timeLimit = time.length - 5
+    time = time.substr(0,timeLimit);
+
+    hackerEarthDetails += "<b>Contest Date: </b>" + date + "<br>";
+    hackerEarthDetails += "<b>Contest Time: </b>" + time + "<br>";
+
+    var limit = parseInt(data[i]['duration']);
+    var hour = parseInt(limit / 3600);
+    var minute = (limit%3600)/60;
+
+    hackerEarthDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+    hackerEarthDetails += "<a href='"+data[i]['url']+"'>Contest Link</a><br><br>";
+    if(i != data.length - 1)
+    {
+      hackerEarthDetails += "<hr>";
+    }
   }
-  intTime = parseInt(time);
-  if(intTime <= 18) intTime += 6;
-  else intTime = (intTime+6)%24;
-  strTime = intTime.toString();
+  hackerEarthDetails += "</center>";  
+    $(".hackerEarthContestDetails").append(hackerEarthDetails);
 
-  var arr = time.split("");
-  arr.splice(0, 1, strTime[0]);
-  time = arr.join("");
-
-  var brr = time.split("");
-  brr.splice(1, 1, strTime[1]);
-  time = brr.join("");
-
-  // slicing time
-  var timeLimit = time.length - 5
-  time = time.substr(0,timeLimit);
-
-  hackerEarthDetails += "Contest Date: " + date + "<br>";
-  hackerEarthDetails += "Contest Time: " + time + "<br>";
-
-  var limit = parseInt(data[i]['duration']);
-  var hour = parseInt(limit / 3600);
-  var minute = (limit%3600)/60;
-
-  hackerEarthDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-  hackerEarthDetails += "Link: " + data[i]['url'] + "<br><br>";
-  }
-  if(i != data.length - 1)
-  {
-    hackerEarthDetails += "<hr>";
-  }
-  $(".hackerEarthContestDetails").append(hackerEarthDetails);
 });
 
 
@@ -350,10 +356,10 @@ for (i = 0; i < data.length; i++)
 $.getJSON("https://kontests.net/api/v1/kick_start", function(data){
 //console.log(data);
 var i;
-var kickStartDetails = "";
+var kickStartDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-  kickStartDetails += "Name: " + data[i]['name'] + "<br>";
+  kickStartDetails += "<b> Name: </b>" + data[i]['name'] + "<br>";
 
   var dateTime = data[i]['start_time'];
   var date = "", time = "", check = false;
@@ -384,19 +390,20 @@ for (i = 0; i < data.length; i++)
   var timeLimit = time.length - 5
   time = time.substr(0,timeLimit);
 
-  kickStartDetails += "Contest Date: " + date + "<br>";
-  kickStartDetails += "Contest Time: " + time + "<br>";
+  kickStartDetails += "<b>Contest Date: </b>" + date + "<br>";
+  kickStartDetails += "<b>Contest Time: </b>" + time + "<br>";
 
   var limit = parseInt(data[i]['duration']);
   var hour = parseInt(limit / 3600);
   var minute = (limit%3600)/60;
 
-  kickStartDetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
-  kickStartDetails += "Link: " + data[i]['url'] + "<br><br>";
+  kickStartDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+  kickStartDetails += "<a href='"+data[i]['url']+"'>Contest Link</a><br><br>";
   if( i != data.length - 1) 
   {
     kickStartDetails += "<hr>";
   }
 }
+kickStartDetails += "</center>";
   $(".kickStartContestDetails").append(kickStartDetails);
 });
