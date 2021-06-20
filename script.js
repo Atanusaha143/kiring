@@ -1,28 +1,90 @@
 // CF
-$.getJSON("https://codeforces.com/api/contest.list", function(data){
-//console.log(data);
+$.getJSON("https://kontests.net/api/v1/codeforces", function(data){
+console.log(data);
 var i;
 var alldetails = "";
-for (i = 0; i < data.result.length; i++) 
+for (i = 0; i < data.length; i++) 
 {
-    if(data.result[i]['phase'] == "BEFORE")
+    if(data[i]['status'] == "BEFORE")
     {
-        if(i == data.result.length - 1)
+      if( i == data.length - 1)
+      {
+        alldetails += "Name: " + data[i]['name'] + "<br>";
+
+        var dateTime = data[i]['start_time'];
+        var date = "", time = "", check = false;
+        for(var j=0; j<dateTime.length; j++)
         {
-          alldetails += "Name: " + data.result[i]['name'] + "<br>";
-          $contestStartTime = data.result[i]['startTimeSeconds'];
-          var startTime = new Date( $contestStartTime *1000);
-          var realTime = startTime.toLocaleString();
-          alldetails += "Start Time: " + realTime + "<br><br>";
+          if(dateTime[j] == 'T')
+          {
+            check = true;
+            continue;
+          }
+          if(check) time += dateTime[j];
+          else date += dateTime[j];
         }
-        else
+        intTime = parseInt(time);
+        if(intTime <= 18) intTime += 6;
+        else intTime = (intTime+6)%24;
+        strTime = intTime.toString();
+
+        var arr = time.split("");
+        arr.splice(0, 1, strTime[0]);
+        time = arr.join("");
+
+        var brr = time.split("");
+        brr.splice(1, 1, strTime[1]);
+        time = brr.join("");
+
+        alldetails += "Contest Date: " + date + "<br>";
+        alldetails += "Contest Time: " + time + "<br>";
+
+        var limit = parseInt(data[i]['duration']);
+        var hour = parseInt(limit / 3600);
+        var minute = (limit%3600)/60;
+
+        alldetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+        alldetails += "Link: " + data[i]['url'] + "<br><br>";
+      }
+      else
+      {
+        alldetails += "Name: " + data[i]['name'] + "<br>";
+
+        var dateTime = data[i]['start_time'];
+        var date = "", time = "", check = false;
+        for(var j=0; j<dateTime.length; j++)
         {
-          alldetails += data.result[i]['name'] + "<br>";
-          $contestStartTime = data.result[i]['startTimeSeconds'];
-          var startTime = new Date( $contestStartTime *1000);
-          var realTime = startTime.toLocaleString();
-          alldetails += realTime + " (BST) <br><br><hr>";
+          if(dateTime[j] == 'T')
+          {
+            check = true;
+            continue;
+          }
+          if(check) time += dateTime[j];
+          else date += dateTime[j];
         }
+        intTime = parseInt(time);
+        if(intTime <= 18) intTime += 6;
+        else intTime = (intTime+6)%24;
+        strTime = intTime.toString();
+
+        var arr = time.split("");
+        arr.splice(0, 1, strTime[0]);
+        time = arr.join("");
+
+        var brr = time.split("");
+        brr.splice(1, 1, strTime[1]);
+        time = brr.join("");
+
+        alldetails += "Contest Date: " + date + "<br>";
+        alldetails += "Contest Time: " + time + "<br>";
+
+        var limit = parseInt(data[i]['duration']);
+        var hour = parseInt(limit / 3600);
+        var minute = (limit%3600)/60;
+
+        alldetails += "Duration: " + hour + " hour " + minute + " minutes " + "<br>";
+        alldetails += "Link: " + data[i]['url'] + "<br><br><hr>";
+      }
     }
   }
   $(".cfContestDetails").append(alldetails);
