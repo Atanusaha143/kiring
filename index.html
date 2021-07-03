@@ -6,55 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="script.js"></script>
-    <!-- for bootstrap -->
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
+    crossorigin="anonymous"> <!-- for bootstrap -->
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> <!-- for fontawesome -->
+
+    <link href='https://fonts.googleapis.com/css?family=Average' rel='stylesheet'> <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'> <!-- google font -->
+
     <link rel="stylesheet" href="style.css">
     <title>Contest Timer</title>
 </head>
-<body class="bg-dark">
-    <div class="container">
-        <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light mb-3" id="main-nav">
-            <div class="container">
-              <a class="navbar-brand font-weight-bold" href="index.html">{ Contest Timer }</a>
-                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav" style="margin-left: 10%;">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#codeforces">Codeforces &nbsp &#8226;</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#atcoder">AtCoder &nbsp &#8226;</a>
-                    </li>
-                    <li class="nav-item">
-                       <a class="nav-link" href="#codechef">CodeChef &nbsp &#8226;</a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="#leetcode">LeetCode &nbsp &#8226;</a>
-                    </li>
-                    <li class="nav-item">
-                       <a class="nav-link" href="#hackerrank">HackerRank &nbsp &#8226;</a>
-                    </li>
-                    <li class="nav-item">
-                       <a class="nav-link" href="#hackerearth">HackerEarth &nbsp &#8226;</a>
-                    </li>
-                    <li class="nav-item">
-                       <a class="nav-link" href="#kickstart">Google KickStart</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
+<body>
+    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="index.html">{ Contest Timer }</a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav" style="margin-left: 10%;">
+                <li class="nav-item">
+                    <a class="nav-link" href="#codeforces">Codeforces &nbsp &#8226;</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#atcoder">AtCoder &nbsp &#8226;</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#codechef">CodeChef &nbsp &#8226;</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#leetcode">LeetCode &nbsp &#8226;</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hackerrank">HackerRank &nbsp &#8226;</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#hackerearth">HackerEarth &nbsp &#8226;</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#kickstart">Google KickStart</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="container">
+    <div class="bg-dark mt-5">
         <div class="row justify-content-center">
-            <div class="col my-5"></div>
+            <center><div class="my-5 text-light title">Running / Upcoming Contests</div></center>
         </div>
     </div>
-
+    
     <section class='bg-dark'>
         <section id='codeforces'>
             <div class="container">

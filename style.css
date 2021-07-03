@@ -20,3 +20,20 @@ html {
 .navbar {
   border-bottom: #008ed6 3px solid;
 }
+
+.contestDetailsFont {
+  font-family: "Average";
+  font-size: 17px;
+}
+
+.contestNameFont {
+  font-family: "Aldrich";
+  font-size: 17px;
+}
+
+.title {
+  font-family: "Aldrich", sans-serif;
+  font-size: 30px;
+  text-shadow: 3px 3px 3px #ababab;
+  text-decoration: underline;
+}

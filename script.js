@@ -7,7 +7,7 @@ for (i = 0; i < data.length; i++)
 {
     if(data[i]['status'] == "BEFORE")
     {
-      alldetails += "<b> Name: </b>" + data[i]['name'] + "<br>";
+      alldetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
 
       var dateTime = data[i]['start_time'];
       var date = "", time = "", check = false;
@@ -38,14 +38,15 @@ for (i = 0; i < data.length; i++)
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
 
-      alldetails += " <b> Contest Date: </b>" + date + "<br>";
-      alldetails += "<b> Contest Time: </b>" + time + "<br>";
+      alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
+      alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
 
       var limit = parseInt(data[i]['duration']);
       var hour = parseInt(limit / 3600);
       var minute = (limit%3600)/60;
 
-      alldetails += "<b> Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+      alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
+
       alldetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
       if( i != data.length - 1)
       {
@@ -67,7 +68,7 @@ for (i = 0; i < data.length; i++)
 {
     if(data[i]['status'] == "BEFORE")
     {
-      atcoderContestDetails += "<b> Name: </b>" + data[i]['name'] + "<br>";
+      atcoderContestDetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:50%'>" + data[i]['name'] + "<br></p>";
 
       var dateTime = data[i]['start_time'];
       var date = "", time = "", check = false;
@@ -98,14 +99,15 @@ for (i = 0; i < data.length; i++)
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
 
-      atcoderContestDetails += "<b> Contest Date: </b>" + date + "<br>";
-      atcoderContestDetails += "<b> Contest Time: </b>" + time + "<br>";
+      atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
+      atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
 
       var limit = parseInt(data[i]['duration']);
       var hour = parseInt(limit / 3600);
       var minute = (limit%3600)/60;
 
-      atcoderContestDetails += " <b> Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+      atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
+
       atcoderContestDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
       if(i != data.length -1 )
       {
@@ -126,7 +128,7 @@ var i;
 var codechefDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-      codechefDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
+      codechefDetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:50%'>" + data[i]['name'] + "<br></p>";
 
       var dateTime = data[i]['start_time'];
       var date = "", time = "", check = false;
@@ -157,14 +159,15 @@ for (i = 0; i < data.length; i++)
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
 
-      codechefDetails += "<b>Contest Date: </b>" + date + "<br>";
-      codechefDetails += "<b>Contest Time: </b>" + time + "<br>";
+      codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
+      codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
 
       var limit = parseInt(data[i]['duration']);
       var hour = parseInt(limit / 3600);
       var minute = (limit%3600)/60;
 
-      codechefDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+      codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
+
       codechefDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
       if(i != data.length - 1)
       {
@@ -183,7 +186,7 @@ var i;
 var leetCodeDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-    leetCodeDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
+    leetCodeDetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:50%'>" + data[i]['name'] + "<br></p>";
 
     var dateTime = data[i]['start_time'];
     var date = "", time = "", check = false;
@@ -214,14 +217,14 @@ for (i = 0; i < data.length; i++)
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
 
-    leetCodeDetails += "<b>Contest Date: </b>" + date + "<br>";
-    leetCodeDetails += "<b>Contest Time: </b>" + time + "<br>";
-
+    leetCodeDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
+    leetCodeDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
     var limit = parseInt(data[i]['duration']);
     var hour = parseInt(limit / 3600);
     var minute = (limit%3600)/60;
 
-    leetCodeDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+    leetCodeDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
+
     leetCodeDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
     if(i != data.length - 1)
     {
@@ -240,7 +243,7 @@ var i;
 var hackerRankDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-    hackerRankDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
+    hackerRankDetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:50%'>" + data[i]['name'] + "<br></p>";
 
     var dateTime = data[i]['start_time'];
     var date = "", time = "", check = false;
@@ -271,14 +274,15 @@ for (i = 0; i < data.length; i++)
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
 
-    hackerRankDetails += "<b>Contest Date: </b>" + date + "<br>";
-    hackerRankDetails += "<b>Contest Time: </b>" + time + "<br>";
+    hackerRankDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
+    hackerRankDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
 
     var limit = parseInt(data[i]['duration']);
     var hour = parseInt(limit / 3600);
     var minute = (limit%3600)/60;
 
-    hackerRankDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+    hackerRankDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
+
     hackerRankDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
 
     if(i != data.length - 1) 
@@ -298,7 +302,7 @@ $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
   var hackerEarthDetails = "<center>";
   for (i = 0; i < data.length; i++) 
   {
-    hackerEarthDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
+    hackerEarthDetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:50%'>" + data[i]['name'] + "<br></p>";
 
     var dateTime = data[i]['start_time'];
     var date = "", time = "", check = false;
@@ -329,14 +333,14 @@ $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
 
-    hackerEarthDetails += "<b>Contest Date: </b>" + date + "<br>";
-    hackerEarthDetails += "<b>Contest Time: </b>" + time + "<br>";
+    hackerEarthDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
+    hackerEarthDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
 
     var limit = parseInt(data[i]['duration']);
     var hour = parseInt(limit / 3600);
     var minute = (limit%3600)/60;
 
-    hackerEarthDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+    hackerEarthDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
     hackerEarthDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
     if(i != data.length - 1)
     {
@@ -356,7 +360,7 @@ var i;
 var kickStartDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-  kickStartDetails += "<b> Name: </b>" + data[i]['name'] + "<br>";
+  kickStartDetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:50%'>" + data[i]['name'] + "<br></p>";
 
   var dateTime = data[i]['start_time'];
   var date = "", time = "", check = false;
@@ -387,14 +391,13 @@ for (i = 0; i < data.length; i++)
   var timeLimit = time.length - 5
   time = time.substr(0,timeLimit);
 
-  kickStartDetails += "<b>Contest Date: </b>" + date + "<br>";
-  kickStartDetails += "<b>Contest Time: </b>" + time + "<br>";
-
+  kickStartDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i> Contest Date - " + date + "<br></p>";
+  kickStartDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i> Contest Time - " + time + "<br></p>";
   var limit = parseInt(data[i]['duration']);
   var hour = parseInt(limit / 3600);
   var minute = (limit%3600)/60;
 
-  kickStartDetails += "<b>Duration: </b>" + hour + " hour " + minute + " minutes " + "<br>";
+  kickStartDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i> Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
   kickStartDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
   if( i != data.length - 1) 
   {
