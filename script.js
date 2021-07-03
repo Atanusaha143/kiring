@@ -126,8 +126,6 @@ var i;
 var codechefDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-    if(data[i]['status'] == "BEFORE")
-    {
       codechefDetails += "<b>Name: </b>" + data[i]['name'] + "<br>";
 
       var dateTime = data[i]['start_time'];
@@ -172,7 +170,6 @@ for (i = 0; i < data.length; i++)
       {
         codechefDetails += "<hr>";
       }
-    }
   }
   codechefDetails += "</center>";
   $(".codechefContestDetails").append(codechefDetails);
