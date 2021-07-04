@@ -1,4 +1,4 @@
-## [Kiring](https://kiring.herokuapp.com/)
+## Kiring
 
 ### About
 ---
