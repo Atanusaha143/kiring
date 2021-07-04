@@ -47,6 +47,11 @@ html {
   text-shadow: 3px 3px 3px #000000;
 }
 
+.about {
+  font-family: "Arima Madurai";
+  font-size: 16px;
+}
+
 @keyframes bounceIn {
   0% {
     transform: scale(0.1);
