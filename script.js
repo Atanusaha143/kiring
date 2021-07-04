@@ -47,7 +47,7 @@ for (i = 0; i < data.length; i++)
 
       alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
 
-      alldetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
+      alldetails += "<a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
       if( i != data.length - 1)
       {
         alldetails += "<hr>";
@@ -108,7 +108,7 @@ for (i = 0; i < data.length; i++)
 
       atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
 
-      atcoderContestDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
+      atcoderContestDetails += "<a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
       if(i != data.length -1 )
       {
         atcoderContestDetails += "<hr>";
@@ -168,7 +168,7 @@ for (i = 0; i < data.length; i++)
 
       codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
 
-      codechefDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
+      codechefDetails += "<a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
       if(i != data.length - 1)
       {
         codechefDetails += "<hr>";
@@ -225,7 +225,7 @@ for (i = 0; i < data.length; i++)
 
     leetCodeDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
 
-    leetCodeDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
+    leetCodeDetails += "<a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
     if(i != data.length - 1)
     {
       leetCodeDetails += "<hr>";
@@ -283,7 +283,7 @@ for (i = 0; i < data.length; i++)
 
     hackerRankDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
 
-    hackerRankDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
+    hackerRankDetails += "<a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
 
     if(i != data.length - 1) 
     {
@@ -341,7 +341,7 @@ $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
     var minute = (limit%3600)/60;
 
     hackerEarthDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-    hackerEarthDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
+    hackerEarthDetails += "<a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
     if(i != data.length - 1)
     {
       hackerEarthDetails += "<hr>";
@@ -398,7 +398,7 @@ for (i = 0; i < data.length; i++)
   var minute = (limit%3600)/60;
 
   kickStartDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i> Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-  kickStartDetails += "<br><a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
+  kickStartDetails += "<a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
   if( i != data.length - 1) 
   {
     kickStartDetails += "<hr>";

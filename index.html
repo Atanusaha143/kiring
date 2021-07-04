@@ -12,56 +12,61 @@
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous"> <!-- for fontawesome -->
 
-    <link href='https://fonts.googleapis.com/css?family=Average' rel='stylesheet'> <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'> <!-- google font -->
+    <link href='https://fonts.googleapis.com/css?family=Average' rel='stylesheet'> <link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'> <link href='https://fonts.googleapis.com/css?family=Artifika' rel='stylesheet'> <link href='https://fonts.googleapis.com/css?family=Averia Serif Libre' rel='stylesheet'>     <!-- google font -->
 
     <link rel="stylesheet" href="style.css">
-    <title>Contest Timer</title>
+    <title> Kiring</title>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light" id="main-nav">
+    <nav class="navbar navbar-expand-sm navbar-light bg-light" id="main-nav">
         <div class="container">
-            <a class="navbar-brand font-weight-bold" href="index.html">{ Contest Timer }</a>
+            <a class="navbar-brand font-weight-bold siteName" href="index.html">{ Kiring }</a>
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav" style="margin-left: 10%;">
                 <li class="nav-item">
-                    <a class="nav-link" href="#codeforces">Codeforces &nbsp &#8226;</a>
+                    <a class="nav-link navContestName" href="#codeforces">Codeforces &nbsp &#8226;</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#atcoder">AtCoder &nbsp &#8226;</a>
+                    <a class="nav-link navContestName" href="#atcoder">AtCoder &nbsp &#8226;</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#codechef">CodeChef &nbsp &#8226;</a>
+                    <a class="nav-link navContestName" href="#codechef">CodeChef &nbsp &#8226;</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#leetcode">LeetCode &nbsp &#8226;</a>
+                    <a class="nav-link navContestName" href="#leetcode">LeetCode &nbsp &#8226;</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#hackerrank">HackerRank &nbsp &#8226;</a>
+                    <a class="nav-link navContestName" href="#hackerrank">HackerRank &nbsp &#8226;</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#hackerearth">HackerEarth &nbsp &#8226;</a>
+                    <a class="nav-link navContestName" href="#hackerearth">HackerEarth &nbsp &#8226;</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#kickstart">Google KickStart</a>
+                    <a class="nav-link navContestName" href="#kickstart">Google KickStart</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
                 </li>
             </ul>
         </div>
     </nav>
 
-    <div class="bg-dark mt-5">
-        <div class="row justify-content-center">
-            <center><div class="my-5 text-light title">Running / Upcoming Contests</div></center>
+    <div class="bg-dark">
+        <div class="col-sm-4 col-lg-12">
+            <div class="row justify-content-center">
+                <center><div class="mt-5 text-light title p-3 titleAnime">Running / Upcoming Contests</div></center>
+            </div>
         </div>
     </div>
     
-    <section class='bg-dark'>
+    <section class="bg-dark">
         <section id='codeforces'>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-7">
+                    <div class="col-lg-7 col-sm-4">
                         <div class="card text-white bg-light mt-5">
                             <div class="card-header text-dark"> <img src="https://www.ime.usp.br/~arcjr/image/codeforces.png" alt="cf_icon" width="40" height="40"> <a href="https://codeforces.com/" class="text-dark"> &nbsp Codeforces</a></div>
                             <div class="card-body">
@@ -77,7 +82,7 @@
         <section id='atcoder'>
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-7">
+                    <div class="col-lg-7 col-sm-4">
                         <div class="card text-white bg-light mt-5">
                             <div class="card-header text-dark"> <img src="https://img.atcoder.jp/assets/top/img/logo_bk.svg" alt="ac_icon" width="40" height="40"> <a href="https://atcoder.jp/" class="text-dark"> &nbsp AtCoder</a></div>
                             <div class="card-body">
@@ -93,7 +98,7 @@
         <section id="codechef">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-7">
+                    <div class="col-lg-7 col-sm-4">
                         <div class="card text-white bg-light mt-5">
                             <div class="card-header text-dark"><img src="https://s3.amazonaws.com/codechef_shared/misc/fb-image-icon.png" alt="cc_icon" width="40" height="40"><a href="https://www.codechef.com/" class="text-dark"> &nbsp CodeChef</a></div>
                             <div class="card-body">
@@ -109,7 +114,7 @@
         <section id="leetcode">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-7">
+                    <div class="col-lg-7 col-sm-4">
                         <div class="card text-white bg-light mt-5">
                             <div class="card-header text-dark"> <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="lc_icon" width="40" height="40"> <a href="https://leetcode.com/" class="text-dark"> &nbsp LeetCode</a></div>
                             <div class="card-body">
@@ -125,7 +130,7 @@
         <section id="hackerrank">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-7">
+                    <div class="col-lg-7 col-sm-4">
                         <div class="card text-white bg-light mt-5">
                             <div class="card-header text-dark"> <img src="https://d29fhpw069ctt2.cloudfront.net/icon/image/38712/preview.svg" alt="hr_icon" width="40" height="40"> <a href="https://www.hackerrank.com" class="text-dark"> &nbsp HackerRank</a></div>
                             <div class="card-body">
@@ -141,7 +146,7 @@
         <section id="hackerearth">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-7">
+                    <div class="col-lg-7 col-sm-4">
                         <div class="card text-white bg-light mt-5">
                             <div class="card-header text-dark"> <img src="https://brandeps.com/icon-download/H/Hackerearth-icon-vector-01.svg" alt="he-icon" width="40" height="40"> <a href="https://www.hackerearth.com" class="text-dark">HackerEarth</a></div>
                             <div class="card-body">
@@ -157,7 +162,7 @@
         <section id="kickstart">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-7">
+                    <div class="col-lg-7 col-sm-4">
                         <div class="card text-white bg-light mt-5">
                             <div class="card-header text-dark"> <img src="https://image.flaticon.com/icons/png/512/281/281764.png" alt="" width="30" height="30"> <a href="https://codingcompetitions.withgoogle.com/kickstart" class="text-dark"> &nbsp Google KickStart</a></div>
                             <div class="card-body">
@@ -169,8 +174,11 @@
             </div>
             <br> <br>
         </section>
-    </div>
     </section>
+
+    <div class="bg-primary">
+        <section id="about">asd</section>
+    </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
