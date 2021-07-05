@@ -4,7 +4,7 @@
 ---
 This website will show **Running and Upcoming** contests details on most popular competitive programming sites.
 
-### Current available sites
+### Current Available Sites
 ---
 1. Codeforces
 2. Atcoder
