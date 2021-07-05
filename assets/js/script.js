@@ -56,7 +56,7 @@ for (i = 0; i < data.length; i++)
       }
       else
       {
-        alldetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+        alldetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
       }
 
       alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
@@ -139,7 +139,7 @@ for (i = 0; i < data.length; i++)
       }
       else
       {
-        atcoderContestDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+        atcoderContestDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
       }
 
       atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
@@ -220,7 +220,7 @@ for (i = 0; i < data.length; i++)
       }
       else
       {
-        codechefDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+        codechefDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
       }
 
       codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
@@ -299,7 +299,7 @@ for (i = 0; i < data.length; i++)
     }
     else
     {
-      leetCodeDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+      leetCodeDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
     }
 
     leetCodeDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
@@ -379,7 +379,7 @@ for (i = 0; i < data.length; i++)
     }
     else
     {
-      hackerRankDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+      hackerRankDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
     }
 
     hackerRankDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
@@ -459,7 +459,7 @@ $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
     }
     else
     {
-      hackerEarthDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+      hackerEarthDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
     }
 
     hackerEarthDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
@@ -537,7 +537,7 @@ for (i = 0; i < data.length; i++)
   }
   else
   {
-    kickStartDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+    kickStartDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
   }
   
   kickStartDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i> Contest Date - " + date + "<br></p>";
