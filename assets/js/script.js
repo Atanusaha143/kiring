@@ -1,6 +1,5 @@
 // CF
 $.getJSON("https://kontests.net/api/v1/codeforces", function(data){
-//console.log(data);
 var i;
 var alldetails = "<center>";
 for (i = 0; i < data.length; i++) 
@@ -83,7 +82,6 @@ for (i = 0; i < data.length; i++)
 
 // AtCoder
 $.getJSON("https://kontests.net/api/v1/at_coder", function(data){
-//console.log(data);
 var i;
 var atcoderContestDetails = "<center>";
 for (i = 0; i < data.length; i++) 
@@ -168,7 +166,6 @@ for (i = 0; i < data.length; i++)
 
 //CodeChef
 $.getJSON("https://kontests.net/api/v1/code_chef", function(data){
-//console.log(data);
 var i;
 var codechefDetails = "<center>";
 for (i = 0; i < data.length; i++) 
@@ -248,7 +245,6 @@ for (i = 0; i < data.length; i++)
 
 //LeetCode
 $.getJSON("https://kontests.net/api/v1/leet_code", function(data){
-//console.log(data);
 var i;
 var leetCodeDetails = "<center>";
 for (i = 0; i < data.length; i++) 
@@ -328,7 +324,6 @@ for (i = 0; i < data.length; i++)
 
 //HackerRank
 $.getJSON("https://kontests.net/api/v1/hacker_rank", function(data){
-//console.log(data);
 var i;
 var hackerRankDetails = "<center>";
 for (i = 0; i < data.length; i++) 
@@ -410,7 +405,6 @@ hackerRankDetails += "</center>";
 
 //HackerEarth
 $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
-  //console.log(data);
   var i;
   var hackerEarthDetails = "<center>";
   for (i = 0; i < data.length; i++) 
@@ -490,7 +484,6 @@ $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
 
 //KickStart
 $.getJSON("https://kontests.net/api/v1/kick_start", function(data){
-//console.log(data);
 var i;
 var kickStartDetails = "<center>";
 for (i = 0; i < data.length; i++) 
