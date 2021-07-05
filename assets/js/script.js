@@ -47,7 +47,7 @@ for (i = 0; i < data.length; i++)
 
       alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
 
-      alldetails += "<a href='"+data[i]['url']+"' class='btn btn-outline-dark' >Registration Link</a><br><br>";
+      alldetails += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
       if( i != data.length - 1)
       {
         alldetails += "<hr>";

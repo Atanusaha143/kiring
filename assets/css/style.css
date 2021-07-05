@@ -41,6 +41,11 @@ html {
   font-size: 16px;
 }
 
+.registrationLinkName {
+  font-family: "Belgrano";
+  font-size: 16px;
+}
+
 .title {
   font-family: "Aldrich", sans-serif;
   font-size: 30px;
