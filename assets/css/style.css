@@ -46,6 +46,11 @@ html {
   font-size: 16px;
 }
 
+.contestStatus {
+  font-family: "Barlow";
+  font-size: 16px;
+}
+
 .title {
   font-family: "Aldrich", sans-serif;
   font-size: 30px;

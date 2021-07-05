@@ -1,6 +1,6 @@
 // CF
 $.getJSON("https://kontests.net/api/v1/codeforces", function(data){
-console.log(data);
+//console.log(data);
 var i;
 var alldetails = "<center>";
 for (i = 0; i < data.length; i++) 
@@ -37,6 +37,28 @@ for (i = 0; i < data.length; i++)
       // slicing time
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
+      
+      // contest status
+      var currentDate = new Date();
+      var day = currentDate.getDate();
+      var month = currentDate.getMonth() + 1;
+      var year = currentDate.getFullYear();
+      if(day.toString().length == 1) day = "0" + day;
+      if(month.toString().length == 1) month = "0" + month; 
+      var today =  year + "-" + month + "-" + day;
+      
+      status = "";
+      if(date > today) status = "Upcoming";
+      else status = "Running";
+
+      if(status == "Upcoming")
+      {
+        alldetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+      }
+      else
+      {
+        alldetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+      }
 
       alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
       alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
@@ -99,6 +121,29 @@ for (i = 0; i < data.length; i++)
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
 
+
+      // contest status
+      var currentDate = new Date();
+      var day = currentDate.getDate();
+      var month = currentDate.getMonth() + 1;
+      var year = currentDate.getFullYear();
+      if(day.toString().length == 1) day = "0" + day;
+      if(month.toString().length == 1) month = "0" + month; 
+      var today =  year + "-" + month + "-" + day;
+      
+      status = "";
+      if(date > today) status = "Upcoming";
+      else status = "Running";
+
+      if(status == "Upcoming")
+      {
+        atcoderContestDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+      }
+      else
+      {
+        atcoderContestDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+      }
+
       atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
       atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
 
@@ -159,6 +204,28 @@ for (i = 0; i < data.length; i++)
       var timeLimit = time.length - 5
       time = time.substr(0,timeLimit);
 
+      // contest status
+      var currentDate = new Date();
+      var day = currentDate.getDate();
+      var month = currentDate.getMonth() + 1;
+      var year = currentDate.getFullYear();
+      if(day.toString().length == 1) day = "0" + day;
+      if(month.toString().length == 1) month = "0" + month; 
+      var today =  year + "-" + month + "-" + day;
+      
+      status = "";
+      if(date > today) status = "Upcoming";
+      else status = "Running";
+
+      if(status == "Upcoming")
+      {
+        codechefDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+      }
+      else
+      {
+        codechefDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+      }
+
       codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
       codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
 
@@ -217,8 +284,31 @@ for (i = 0; i < data.length; i++)
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
 
+    // contest status
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    if(day.toString().length == 1) day = "0" + day;
+    if(month.toString().length == 1) month = "0" + month; 
+    var today =  year + "-" + month + "-" + day;
+    
+    status = "";
+    if(date > today) status = "Upcoming";
+    else status = "Running";
+
+    if(status == "Upcoming")
+    {
+      leetCodeDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+    }
+    else
+    {
+      leetCodeDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+    }
+
     leetCodeDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
     leetCodeDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
+
     var limit = parseInt(data[i]['duration']);
     var hour = parseInt(limit / 3600);
     var minute = (limit%3600)/60;
@@ -273,6 +363,29 @@ for (i = 0; i < data.length; i++)
     // slicing time
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
+
+
+    // contest status
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    if(day.toString().length == 1) day = "0" + day;
+    if(month.toString().length == 1) month = "0" + month; 
+    var today =  year + "-" + month + "-" + day;
+    
+    status = "";
+    if(date > today) status = "Upcoming";
+    else status = "Running";
+
+    if(status == "Upcoming")
+    {
+      hackerRankDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+    }
+    else
+    {
+      hackerRankDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+    }
 
     hackerRankDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
     hackerRankDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
@@ -333,6 +446,28 @@ $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
 
+    // contest status
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    if(day.toString().length == 1) day = "0" + day;
+    if(month.toString().length == 1) month = "0" + month; 
+    var today =  year + "-" + month + "-" + day;
+    
+    status = "";
+    if(date > today) status = "Upcoming";
+    else status = "Running";
+
+    if(status == "Upcoming")
+    {
+      hackerEarthDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+    }
+    else
+    {
+      hackerEarthDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+    }
+
     hackerEarthDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
     hackerEarthDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
 
@@ -391,8 +526,30 @@ for (i = 0; i < data.length; i++)
   var timeLimit = time.length - 5
   time = time.substr(0,timeLimit);
 
+  // contest status
+  var currentDate = new Date();
+  var day = currentDate.getDate();
+  var month = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+  if(day.toString().length == 1) day = "0" + day;
+  if(month.toString().length == 1) month = "0" + month; 
+  var today =  year + "-" + month + "-" + day;  
+  status = "";
+  if(date > today) status = "Upcoming";
+  else status = "Running";
+
+  if(status == "Upcoming")
+  {
+    kickStartDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+  }
+  else
+  {
+    kickStartDetails += "<p class='contestStatus badge badge-success'> &nbsp" + status + "</p>";
+  }
+  
   kickStartDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i> Contest Date - " + date + "<br></p>";
   kickStartDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i> Contest Time - " + time + "<br></p>";
+
   var limit = parseInt(data[i]['duration']);
   var hour = parseInt(limit / 3600);
   var minute = (limit%3600)/60;
