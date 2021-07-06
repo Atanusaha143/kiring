@@ -1,90 +1,75 @@
 // CF
-
-let todaysContest = "<center>";
 $.getJSON("https://kontests.net/api/v1/codeforces", function(data){
 var i;
 var alldetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-    if(data[i]['status'] == "BEFORE")
+    alldetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
+
+    var dateTime = data[i]['start_time'];
+    var date = "", time = "", check = false;
+    for(var j=0; j<dateTime.length; j++)
     {
-      alldetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
-
-      var dateTime = data[i]['start_time'];
-      var date = "", time = "", check = false;
-      for(var j=0; j<dateTime.length; j++)
+      if(dateTime[j] == 'T')
       {
-        if(dateTime[j] == 'T')
-        {
-          check = true;
-          continue;
-        }
-        if(check) time += dateTime[j];
-        else date += dateTime[j];
+        check = true;
+        continue;
       }
-      intTime = parseInt(time);
-      if(intTime <= 18) intTime += 6;
-      else intTime = (intTime+6)%24;
-      strTime = intTime.toString();
+      if(check) time += dateTime[j];
+      else date += dateTime[j];
+    }
+    intTime = parseInt(time);
+    if(intTime <= 18) intTime += 6;
+    else intTime = (intTime+6)%24;
+    strTime = intTime.toString();
 
-      var arr = time.split("");
-      arr.splice(0, 1, strTime[0]);
-      time = arr.join("");
+    var arr = time.split("");
+    arr.splice(0, 1, strTime[0]);
+    time = arr.join("");
 
-      var brr = time.split("");
-      brr.splice(1, 1, strTime[1]);
-      time = brr.join("");
+    var brr = time.split("");
+    brr.splice(1, 1, strTime[1]);
+    time = brr.join("");
 
-      // slicing time
-      var timeLimit = time.length - 5
-      time = time.substr(0,timeLimit);
-      
-      // contest status
-      var currentDate = new Date();
-      var day = currentDate.getDate();
-      var month = currentDate.getMonth() + 1;
-      var year = currentDate.getFullYear();
-      if(day.toString().length == 1) day = "0" + day;
-      if(month.toString().length == 1) month = "0" + month; 
-      var today =  year + "-" + month + "-" + day;
-      
-      status = "";
-      if(date > today) status = "Upcoming";
-      else status = "Running";
+    // slicing time
+    var timeLimit = time.length - 5
+    time = time.substr(0,timeLimit);
+    
+    // contest status
+    var currentDate = new Date();
+    var day = currentDate.getDate();
+    var month = currentDate.getMonth() + 1;
+    var year = currentDate.getFullYear();
+    if(day.toString().length == 1) day = "0" + day;
+    if(month.toString().length == 1) month = "0" + month; 
+    var today =  year + "-" + month + "-" + day;
+    
+    status = "";
+    if(date > today) status = "Upcoming";
+    else status = "Running";
 
-      if(status == "Upcoming")
-      {
-        alldetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
-      }
-      else
-      {
-        alldetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
-      }
+    if(status == "Upcoming")
+    {
+      alldetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+    }
+    else
+    {
+      alldetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
+    }
 
-      alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
-      alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
+    alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
+    alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
 
-      var limit = parseInt(data[i]['duration']);
-      var hour = parseInt(limit / 3600);
-      var minute = (limit%3600)/60;
+    var limit = parseInt(data[i]['duration']);
+    var hour = parseInt(limit / 3600);
+    var minute = (limit%3600)/60;
 
-      alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
+    alldetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
 
-      alldetails += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
-      if( i != data.length - 1)
-      {
-        alldetails += "<hr>";
-      }
-
-      if(date == today)
-      {
-        todaysContest += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-        todaysContest += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
-        todaysContest += "<hr>";
-      }
+    alldetails += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
+    if( i != data.length - 1)
+    {
+      alldetails += "<hr>";
     }
   }
   alldetails += "</center>";
@@ -98,8 +83,6 @@ var i;
 var atcoderContestDetails = "<center>";
 for (i = 0; i < data.length; i++) 
 {
-    if(data[i]['status'] == "BEFORE")
-    {
       atcoderContestDetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:50%'>" + data[i]['name'] + "<br></p>";
 
       var dateTime = data[i]['start_time'];
@@ -168,18 +151,6 @@ for (i = 0; i < data.length; i++)
       {
         atcoderContestDetails += "<hr>";
       }
-
-      if(date == today)
-      {
-        todaysContest += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-        todaysContest += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
-        todaysContest += "<hr>";
-      }
-
-    }
   }
   atcoderContestDetails += "</center>";
   $(".atcoderContestDetails").append(atcoderContestDetails);
@@ -260,17 +231,6 @@ for (i = 0; i < data.length; i++)
       {
         codechefDetails += "<hr>";
       }
-
-      if(date == today)
-      {
-        todaysContest += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
-        todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-        todaysContest += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
-        todaysContest += "<hr>";
-      }
-
   }
   codechefDetails += "</center>";
   $(".codechefContestDetails").append(codechefDetails);
@@ -349,16 +309,6 @@ for (i = 0; i < data.length; i++)
     if(i != data.length - 1)
     {
       leetCodeDetails += "<hr>";
-    }
-
-    if(date == today)
-    {
-      todaysContest += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-      todaysContest += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
-      todaysContest += "<hr>";
     }
 
   }
@@ -442,17 +392,6 @@ for (i = 0; i < data.length; i++)
     {
       hackerRankDetails += "<hr>";
     }
-
-    if(date == today)
-    {
-      todaysContest += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-      todaysContest += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
-      todaysContest += "<hr>";
-    }
-
 }
 hackerRankDetails += "</center>";
   $(".hackerRankContestDetails").append(hackerRankDetails);
@@ -531,17 +470,6 @@ $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
     {
       hackerEarthDetails += "<hr>";
     }
-
-    if(date == today)
-    {
-      todaysContest += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
-      todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-      todaysContest += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
-      todaysContest += "<hr>";
-    }
-
   }
   hackerEarthDetails += "</center>";  
     $(".hackerEarthContestDetails").append(hackerEarthDetails);
@@ -620,23 +548,7 @@ for (i = 0; i < data.length; i++)
   {
     kickStartDetails += "<hr>";
   }
-
-  if(date == today)
-  {
-    todaysContest += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
-    todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "</p>";
-    todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "</p>";
-    todaysContest += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Duration - " + hour + " hour " + minute + " minutes " + "<br></p>";
-    todaysContest += "<a href='"+data[i]['url']+"' class='btn btn-dark registrationLinkName' >Registration Link</a><br><br>";
-  }
 }
 kickStartDetails += "</center>";
   $(".kickStartContestDetails").append(kickStartDetails);
-
-    if(todaysContest == "<center>")
-  {
-    todaysContest += "No contest will begin today!  &#x1F494; ";
-  }
-  todaysContest += "</center>";
-  $(".todaysContest").append(todaysContest);
 });
