@@ -2,7 +2,7 @@
 
 ### About
 ---
-This website will show **Running and Upcoming** contests details on most popular competitive programming sites.
+This website will show **Running and Upcoming** contests details on most popular competitive programming sites. Along with this it will also provide a list a today's contests.
 
 ### Current Available Sites
 ---
