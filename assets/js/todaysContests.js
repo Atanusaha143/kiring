@@ -1,6 +1,6 @@
 // CF
 
-let todaysContest = "<center>";
+var todaysContest = "<center>";
 $.getJSON("https://kontests.net/api/v1/codeforces", function(data){
 var i;
 for (i = 0; i < data.length; i++) 

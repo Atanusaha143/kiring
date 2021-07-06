@@ -6,6 +6,7 @@ for (i = 0; i < data.length; i++)
 {
     alldetails += "<p class='border border-dark rounded text-dark p-3 contestNameFont' style='width:55%'>" + data[i]['name'] + "<br></p>";
 
+    //contest start time
     var dateTime = data[i]['start_time'];
     var date = "", time = "", check = false;
     for(var j=0; j<dateTime.length; j++)
@@ -18,6 +19,7 @@ for (i = 0; i < data.length; i++)
       if(check) time += dateTime[j];
       else date += dateTime[j];
     }
+
     intTime = parseInt(time);
     if(intTime <= 18) intTime += 6;
     else intTime = (intTime+6)%24;
@@ -34,6 +36,7 @@ for (i = 0; i < data.length; i++)
     // slicing time
     var timeLimit = time.length - 5
     time = time.substr(0,timeLimit);
+
     
     // contest status
     var currentDate = new Date();
@@ -46,12 +49,17 @@ for (i = 0; i < data.length; i++)
     
     status = "";
     if(date > today) status = "Upcoming";
+    else if(date == today) status = "Happening Today";
     else status = "Running";
 
     if(status == "Upcoming")
     {
       alldetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
     }
+    else if(status == "Happening Today")
+    {
+      alldetails += "<p class='contestStatus badge badge-primary'> " + status + "</p>";
+    } 
     else
     {
       alldetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
@@ -125,17 +133,22 @@ for (i = 0; i < data.length; i++)
       var today =  year + "-" + month + "-" + day;
       
       status = "";
-      if(date > today) status = "Upcoming";
-      else status = "Running";
+    if(date > today) status = "Upcoming";
+    else if(date == today) status = "Happening Today";
+    else status = "Running";
 
-      if(status == "Upcoming")
-      {
-        atcoderContestDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
-      }
-      else
-      {
-        atcoderContestDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
-      }
+    if(status == "Upcoming")
+    {
+      atcoderContestDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+    }
+    else if(status == "Happening Today")
+    {
+      atcoderContestDetails += "<p class='contestStatus badge badge-primary'> " + status + "</p>";
+    } 
+    else
+    {
+      atcoderContestDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
+    }
 
       atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
       atcoderContestDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
@@ -205,17 +218,22 @@ for (i = 0; i < data.length; i++)
       var today =  year + "-" + month + "-" + day;
       
       status = "";
-      if(date > today) status = "Upcoming";
-      else status = "Running";
+    if(date > today) status = "Upcoming";
+    else if(date == today) status = "Happening Today";
+    else status = "Running";
 
-      if(status == "Upcoming")
-      {
-        codechefDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
-      }
-      else
-      {
-        codechefDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
-      }
+    if(status == "Upcoming")
+    {
+      codechefDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
+    }
+    else if(status == "Happening Today")
+    {
+      codechefDetails += "<p class='contestStatus badge badge-primary'> " + status + "</p>";
+    } 
+    else
+    {
+      codechefDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
+    }
 
       codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Date - " + date + "<br></p>";
       codechefDetails += "<p class='contestDetailsFont'> <i class='fas fa-caret-right'></i>  Contest Time - " + time + "<br></p>";
@@ -285,12 +303,17 @@ for (i = 0; i < data.length; i++)
     
     status = "";
     if(date > today) status = "Upcoming";
+    else if(date == today) status = "Happening Today";
     else status = "Running";
 
     if(status == "Upcoming")
     {
       leetCodeDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
     }
+    else if(status == "Happening Today")
+    {
+      leetCodeDetails += "<p class='contestStatus badge badge-primary'> " + status + "</p>";
+    } 
     else
     {
       leetCodeDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
@@ -366,12 +389,17 @@ for (i = 0; i < data.length; i++)
     
     status = "";
     if(date > today) status = "Upcoming";
+    else if(date == today) status = "Happening Today";
     else status = "Running";
 
     if(status == "Upcoming")
     {
       hackerRankDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
     }
+    else if(status == "Happening Today")
+    {
+      hackerRankDetails += "<p class='contestStatus badge badge-primary'> " + status + "</p>";
+    } 
     else
     {
       hackerRankDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
@@ -446,12 +474,17 @@ $.getJSON("https://kontests.net/api/v1/hacker_earth", function(data){
     
     status = "";
     if(date > today) status = "Upcoming";
+    else if(date == today) status = "Happening Today";
     else status = "Running";
 
     if(status == "Upcoming")
     {
       hackerEarthDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
     }
+    else if(status == "Happening Today")
+    {
+      hackerEarthDetails += "<p class='contestStatus badge badge-primary'> " + status + "</p>";
+    } 
     else
     {
       hackerEarthDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
@@ -522,14 +555,20 @@ for (i = 0; i < data.length; i++)
   if(day.toString().length == 1) day = "0" + day;
   if(month.toString().length == 1) month = "0" + month; 
   var today =  year + "-" + month + "-" + day;  
+  
   status = "";
   if(date > today) status = "Upcoming";
+  else if(date == today) status = "Happening Today";
   else status = "Running";
 
   if(status == "Upcoming")
   {
     kickStartDetails += "<p class='contestStatus badge badge-warning'> " + status + "</p>";
   }
+  else if(status == "Happening Today")
+  {
+    kickStartDetails += "<p class='contestStatus badge badge-primary'> " + status + "</p>";
+  } 
   else
   {
     kickStartDetails += "<p class='contestStatus badge badge-success'> " + status + "</p>";
