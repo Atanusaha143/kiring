@@ -1,8 +1,8 @@
-## [Kiring](https://kiring.herokuapp.com/)
+## [Kiring](https://kiring-production.up.railway.app/)
 
 ### About
 ---
-This website will show **Running and Upcoming** contests details on most popular competitive programming sites. Along with this it will also provide a list of **today's contests**.
+This website will show **Running and Upcoming** contest details on the most popular competitive programming sites. It will also provide a list of **today's contests**.
 
 ### Current Available Sites
 ---
